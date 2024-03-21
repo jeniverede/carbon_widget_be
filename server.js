@@ -9,7 +9,7 @@ const cors = require('cors');
 /* npm i dotenv */
 require('dotenv').config();
 /* import routes/subscribe */
-const subscribe = require('./routes/subscribe');
+const subscribe = require('./routes/subscribeRoute');
 
 /* import connectDB from dbinit.js */
 const connectDB = require('./dbinit');

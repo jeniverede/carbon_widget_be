@@ -1,6 +1,6 @@
 const Drive = require('../schemas/Drive');
 
-exports.calculateCarbonProduced = async (req, res) => {
+exports.calculateCarbonProducedController = async (req, res) => {
     const { daysOfDriving } = req.body;
 
     try {

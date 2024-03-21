@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 /* import contollers/subscribe */
-const createSubscribe  = require("../controllers/subscribe")
+const createSubscribe  = require("../controllers/subscribeController")
 
 /* decide which controllers to execute on which routes */
 /* can run getAll & post route on main path */
