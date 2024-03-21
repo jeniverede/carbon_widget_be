@@ -1,21 +1,40 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
-const port = 3000;
+const driveRoutes = require('./routes/driveRoute');
+
+const app = express();
+
+/* npm i cors */
+const cors = require('cors');
+/* npm i dotenv */
+require('dotenv').config();
+/* import routes/subscribe */
+const subscribe = require('./routes/subscribe');
+
+/* import connectDB from dbinit.js */
+const connectDB = require('./dbinit');
+/* calling connectDB */
+connectDB();
+
+/* middleware, standard for web applications */
+/* specifies json files are being used  */
+app.use(express.json());
+/* determines who can/cannot connect to DB */
+app.use(cors());
+/* enables post request/form submission from an html page to the database */
+/* extended: true enables access to more data types */
+app.use(express.urlencoded({ extended: true }));
+
+const PORT = process.env.PORT || 3000;
 
 /* routes */
 app.get('/', (req, res) => {
     res.send('Hello Node API!');
 });
 
-app.listen(port, () => {
-    console.log(`Node API is running on port ${port}`);
-});
+app.use('/router/subscribe', subscribe);
+app.use('/router/drive', driveRoutes);
 
-mongoose.
-    connect('mongodb+srv://jenniferrrothrock:4oOYNmlepOtzj31V@dev-carbonwidget-frankf.vxzmc3d.mongodb.net/?retryWrites=true&w=majority')
-    .then(() => {
-        console.log('Connected to MongoDB');
-    }).catch((error) => {
-        console.log(error);
-    });
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost: ${PORT}`);
+});
