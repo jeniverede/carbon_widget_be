@@ -11,7 +11,7 @@ This widget calculates CO2 production based on user input for driving, diet fact
 
 ## Built With:
 ### Backend
-HTML, Node.js, Javascript, MongoDB
+HTML, Node.js 20.11.1 LTS, Javascript, MongoDB
 
 This file is connected to MongoDB with collections for: driveSchema: daysOfDriving, carbonProduced; dietSchema: daysPerWeek, carbonProduced; subscribeSchema: email address
 
