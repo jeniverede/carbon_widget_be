@@ -18,3 +18,5 @@ SubscribeSchema: email address
 
 This file runs on PORT 3000,
 use npm run dev to run the server
+
+KateOblomova is a contributor for testing and improving routes.
