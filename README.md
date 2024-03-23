@@ -14,7 +14,9 @@ change main from index.js to server.js,
 add "dev": "nodemon server.js",
 
 This file is connected to MongoDB with collections for:
-SubscribeSchema: email address
+driveSchema: daysOfDriving, carbonProduced
+dietSchema: daysPerWeek, carbonProduced
+subscribeSchema: email address
 
 This file runs on PORT 3000,
 use npm run dev to run the server
