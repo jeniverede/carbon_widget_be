@@ -1,18 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
+/* import routes */
 const driveRoutes = require("./routes/driveRoute");
+const dietRoutes = require("./routes/dietRoute");
+const subscribe = require("./routes/subscribeRoute");
 
 const app = express();
 
 /* npm i cors */
 const cors = require("cors");
+
 /* npm i dotenv */
 require("dotenv").config();
-/* import routes/subscribe */
-const subscribe = require("./routes/subscribeRoute");
 
 /* import connectDB from dbinit.js */
 const connectDB = require("./dbinit");
+
 /* calling connectDB */
 connectDB();
 
@@ -32,8 +36,9 @@ app.get("/", (req, res) => {
   res.send("Hello Node API!");
 });
 
-app.use("/subscribe", subscribe);
 app.use("/drive", driveRoutes);
+app.use("/diet", dietRoutes);
+app.use("/subscribe", subscribe);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost: ${PORT}`);
